@@ -1,8 +1,9 @@
-name: send message
+name: Telegram Citas Message
 
 # Controls when the action will run.
 on:
-  workflow_dispatch
+  schedule:
+      - cron: "0 9 * * *"
 
 
 jobs: 
