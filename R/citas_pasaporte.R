@@ -5,10 +5,10 @@ library(tidyverse)
 library(janitor)
 library(telegram.bot)
 
-bot <- Bot(token = "1917827697:AAFjdGbFQQV_kPYFvcCO012duyDrGLxfWHY")
+bot <- Bot(token = Sys.getenv("TOKEN"))
 #chat_id <- -671579379 
 
-
+CHAT_ID - Sys.getenv("CHAT_ID")
 # CHAT_ID <- -503564772
 
 url <- getURL("https://www.cgeonline.com.ar/informacion/apertura-de-citas.html",.encoding = 'UTF-8',.opts = list(ssl.verifypeer = FALSE) )
