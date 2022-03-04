@@ -26,17 +26,6 @@ jobs:
         R -e 'install.packages("telegram.bot")'
     # Run R script
     - name: Send Message
-      run: |
-          source("R/citas_pasaporte.R")
+      run: Rscript R/citas_pasaporte.R
       
- # Add new files in data folder, commit along with other modified files, push
-    - name: Commit files
-      run: |
-        git config --local user.name actions-user
-        git config --local user.email "actions@github.com"
-        git add data/*
-        git commit -am "GH ACTION Headlines $(date)"
-        git push origin main
-      env:
-        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
-        username: github-actions
+ 
