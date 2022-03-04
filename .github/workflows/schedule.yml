@@ -1,0 +1,42 @@
+name: send message
+
+# Controls when the action will run.
+on:
+  workflow_dispatch
+
+
+jobs: 
+  autoscrape:
+    # The type of runner that the job will run on
+    runs-on: macos-latest
+
+    # Load repo and install R
+    steps:
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
+
+    # Set-up R
+    - name: Install packages
+      run: |
+        R -e 'install.packages("XML")'
+        R -e 'install.packages("RCurl")'
+        R -e 'install.packages("rlist")'
+        R -e 'install.packages("tidyverse")'
+        R -e 'install.packages("janitor")'
+        R -e 'install.packages("telegram.bot")'
+    # Run R script
+    - name: Send Message
+      run: |
+          source("R/citas_pasaporte.R")
+      
+ # Add new files in data folder, commit along with other modified files, push
+    - name: Commit files
+      run: |
+        git config --local user.name actions-user
+        git config --local user.email "actions@github.com"
+        git add data/*
+        git commit -am "GH ACTION Headlines $(date)"
+        git push origin main
+      env:
+        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+        username: github-actions
