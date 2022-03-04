@@ -53,8 +53,8 @@ if (is.na(proximo_nacimiento)) {
   bot$sendMessage(chat_id = CHAT_ID, 
                   text = paste("\xF0\x9F\x98\x94 Todavia no hay nuevas citas disponibles para nacimientos La ultima fue hace", ultimo_nacimiento, "dias"))
   
-  bot$sendMessage(chat_id = CHAT_ID, 
-                  text = "Dejo el link para chequear por si les pinta \xF0\x9F\x91\x87: https://www.cgeonline.com.ar/informacion/apertura-de-citas.html")
+  #bot$sendMessage(chat_id = CHAT_ID, 
+  #                text = "Dejo el link para chequear por si les pinta \xF0\x9F\x91\x87: https://www.cgeonline.com.ar/informacion/apertura-de-citas.html")
 } else {
   
   bot$sendMessage(chat_id = CHAT_ID, 
