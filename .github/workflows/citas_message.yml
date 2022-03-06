@@ -2,9 +2,9 @@ name: Telegram Citas Message
 
 # Controls when the action will run.
 on:
-  #workflow_dispatch
-  schedule:
-      - cron: "0 12 * * *"
+  workflow_dispatch
+  #schedule:
+  #    - cron: "0 12 * * *"
 
 
 jobs: 
@@ -25,6 +25,15 @@ jobs:
         R -e 'install.packages("rlist")'
         R -e 'install.packages("janitor")'
         R -e 'install.packages("telegram.bot")'
+   #Variables
+    - name: Create and populate .Renviron file
+      run: |
+        echo chat_id="$CHAT_ID" >> ~/.Renviron
+        echo token="$TOKEN " >> ~/.Renviron
+      shell: bash
+      env:
+        CHAT_ID: ${{ secrets.CHAT_ID}}
+        TOKEN : ${{ secrets.TOKEN }}
     # Run R script
     - name: Send Message
       env: 
