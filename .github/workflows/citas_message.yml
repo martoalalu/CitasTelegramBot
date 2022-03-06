@@ -2,9 +2,9 @@ name: Telegram Citas Message
 
 # Controls when the action will run.
 on:
-  workflow_dispatch
-  #schedule:
-  #    - cron: "0 12 * * *"
+  #workflow_dispatch
+  schedule:
+      - cron: "0 12 * * *"
 
 
 jobs: 
@@ -27,13 +27,13 @@ jobs:
         R -e 'install.packages("telegram.bot")'
         
    # Load variables (token & chat_id)
-    - name: Create and populate .Renviron file
-      env:
-        CHAT_ID: ${{ secrets.CHAT_ID}}
-        token : ${{ secrets.TOKEN }}
-      run: |
-        R -e 'token = Sys.getenv("token")'
-        R -e 'CHAT_ID = Sys.getenv("CHAT_ID")'
+   # - name: Create and populate .Renviron file
+   #   env:
+   #     CHAT_ID: ${{ secrets.CHAT_ID}}
+   #     token : ${{ secrets.TOKEN }}
+   #   run: |
+   #     R -e 'token = Sys.getenv("token")'
+   #     R -e 'CHAT_ID = Sys.getenv("CHAT_ID")'
     #    echo chat_id="$CHAT_ID" >> ~/.Renviron
     #    echo token="$TOKEN " >> ~/.Renviron
     #  shell: bash
@@ -42,9 +42,9 @@ jobs:
     #    TOKEN : ${{ secrets.TOKEN }}
     # Run R script
     - name: Send Message
-      env: 
-          CHAT_ID: ${{ secrets.CHAT_ID }}
-          token: ${{ secrets.TOKEN }}
+     # env: 
+     #     CHAT_ID: ${{ secrets.CHAT_ID }}
+     #     token: ${{ secrets.TOKEN }}
       run: Rscript R/citas_pasaporte.R
      
       
