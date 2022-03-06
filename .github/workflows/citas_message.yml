@@ -42,9 +42,9 @@ jobs:
     #    TOKEN : ${{ secrets.TOKEN }}
     # Run R script
     - name: Send Message
-     # env: 
-     #     CHAT_ID: ${{ secrets.CHAT_ID }}
-     #     token: ${{ secrets.TOKEN }}
+      env: 
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          token: ${{ secrets.TOKEN }}
       run: Rscript R/citas_pasaporte.R
      
       
