@@ -26,19 +26,19 @@ jobs:
         R -e 'install.packages("janitor")'
         R -e 'install.packages("telegram.bot")'
    #Variables
-    - name: Create and populate .Renviron file
-      run: |
-        echo chat_id="$CHAT_ID" >> ~/.Renviron
-        echo token="$TOKEN " >> ~/.Renviron
-      shell: bash
-      env:
-        CHAT_ID: ${{ secrets.CHAT_ID}}
-        TOKEN : ${{ secrets.TOKEN }}
+    #- name: Create and populate .Renviron file
+    #  run: |
+    #    echo chat_id="$CHAT_ID" >> ~/.Renviron
+    #    echo token="$TOKEN " >> ~/.Renviron
+    #  shell: bash
+    #  env:
+    #    CHAT_ID: ${{ secrets.CHAT_ID}}
+    #    TOKEN : ${{ secrets.TOKEN }}
     # Run R script
     - name: Send Message
       env: 
           CHAT_ID: ${{ secrets.CHAT_ID }}
-          TOKEN: ${{ secrets.TOKEN }}
+          token: ${{ secrets.TOKEN }}
       run: Rscript R/citas_pasaporte.R
      
       
