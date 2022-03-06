@@ -6,11 +6,11 @@ library(janitor)
 library(telegram.bot)
 
 #bot <- Bot(token = token)
-bot <- Bot(token = Sys.getenv("token")
+bot <- Bot(token = Sys.getenv("token"))
 
 #bot <- Bot(token = "1917827697:AAFjdGbFQQV_kPYFvcCO012duyDrGLxfWHY")
 
-CHAT_ID <-Sys.getenv("CHAT_ID")
+CHAT_ID <- Sys.getenv("CHAT_ID")
 #CHAT_ID <- -671579379 #TEST
 #CHAT_ID <- -503564772 #PROD
 
