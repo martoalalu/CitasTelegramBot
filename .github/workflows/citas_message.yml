@@ -26,6 +26,7 @@ jobs:
         R -e 'install.packages("rlist")'
         R -e 'install.packages("janitor")'
         R -e 'install.packages("telegram.bot")'
+        R -e 'install.packages("tidyverse")'
         
    # Load variables (token & chat_id)
    # - name: Create and populate .Renviron file
